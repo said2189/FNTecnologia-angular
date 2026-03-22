@@ -1,5 +1,7 @@
 # FNTecnologiaHeinerAngular
 
+validar las variables de entorno en el archivo src/environment.ts, estan definidas las url de cada end point a consumir 
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.2.
 
 ## Development server
