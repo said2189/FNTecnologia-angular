@@ -1,0 +1,32 @@
+<form [formGroup]="form" (ngSubmit)="submit()" class="container mt-5" style="max-width: 400px;">
+  <h3 class="mb-4 text-center">Iniciar Sesión</h3>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Correo electrónico</label>
+    <input id="email" type="email" formControlName="email" class="form-control" placeholder="ejemplo@correo.com" />
+    @if (form.controls['email'].touched && form.controls['email'].invalid) {
+      <div class="text-danger mt-1">Correo inválido.</div>
+    }
+  </div>
+
+  <div class="mb-3">
+    <label for="password" class="form-label">Contraseña</label>
+    <input id="password" type="password" formControlName="password" class="form-control" placeholder="********" />
+    @if (form.controls['password'].touched && form.controls['password'].invalid) {
+      <div class="text-danger mt-1">La contraseña es obligatoria.</div>
+    }
+  </div>
+
+  @if (error()) {
+    <div class="alert alert-danger mt-3">
+      {{ error() }}
+    </div>
+  }
+
+  <div class="d-grid">
+    <button type="submit" class="btn btn-primary" [disabled]="loading()">
+      @if (loading()) { <span class="spinner-border spinner-border-sm me-2"></span> }
+      Ingresar
+    </button>
+  </div>
+</form>
